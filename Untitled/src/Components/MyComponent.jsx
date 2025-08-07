@@ -1,86 +1,34 @@
-import React, {use, useState} from "react"
+//Updating objects with state
 
+import { useState } from "react";
 
 function MyComponent() {
 
-    const [name, setName] = useState("")
-    const [comment, setComment] = useState("")
-    const [payment, setPayment] = useState("")
-    const [shipping, setShipping] = useState("")
+    const [car, setCar] = useState({Year: 2016, Make: "Renault", Model: "Clio RS 16"})
 
-    function handleNameChange(event) {
-        setName(event.target.value)
+    function handleYearChange(event) {
+        setCar(prevCar => ({...prevCar, Year: event.target.value}))
     }
 
-    function handleCommentChange(event) {
-        setComment(event.target.value)
-    }
-    
-    function handlePaymentChange(event) {
-        setPayment(event.target.value)
+    function handleMakeChange(event) {
+        setCar(prevCar => ({...prevCar, Make: event.target.value}))
     }
 
-    function handleShippingChange(event) {
-        setShipping(event.target.value)
+    function handleModelChange(event) {
+        setCar(prevCar => ({...prevCar, Model: event.target.value}))
     }
 
     return(
         <div>
-            <input value={name} onChange={handleNameChange} type="text" />
-            <p>Name: {name}</p>
+            <p>Your favourite car is: {car.Year}, {car.Make}, {car.Model}.</p>
 
-            <p>Delivery Instructions</p>
-            <textarea value={comment} onChange={handleCommentChange} placeholder="Leave additional Delivery Instructions"/>
-
-            <p>Payment Option</p>
-            <select value={payment} onChange={handlePaymentChange}>
-                <option value="">Select Payment</option>
-                <option value="Visa">Visa</option>
-                <option value="MasterCard">MasterCard</option>
-            </select>
-
-            <div className="div">
-                <label>
-                    <input type="radio" value="Pick Up" checked={shipping === "Pick Up"} onChange={handleShippingChange}/>
-                    Pick Up
-                </label><br/>
-
-                <label>
-                    <input type="radio" value="Delivery" checked={shipping === "Delivery"} onChange={handleShippingChange}/>
-                    Delivery
-                </label>
-
-                <p>Delivery Method: {shipping}</p>
+            <div className="inputs">
+                <input type="number" value={car.Year} onChange={handleYearChange}/><br/>
+                <input type="text" value={car.Make} onChange={handleMakeChange}/><br/>
+                <input type="text" value={car.Model} onChange={handleModelChange}/><br/>
             </div>
-
-
         </div>
     )
 }
-
-
-// function MyComponent() {
-
-//     const [name, setName] = useState("Guest")
-//     const [age, setAge] = useState("0")
-
-//     const updateAge = () => {
-//         setAge("21")
-//     }
-
-//     const updateName = () => {
-//         setName("Patrick StarFish")
-//     }
-
-//     return (
-//         <div>
-//             <p>Name: {name}</p>
-//             <button onClick={updateName}>Set Name</button>
-//             <p>Age: {age}</p>
-//             <button onClick={updateAge}>Set Age</button>
-//         </div>
-//     )
-
-// }
 
 export default MyComponent
