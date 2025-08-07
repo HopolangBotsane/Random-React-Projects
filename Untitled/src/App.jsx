@@ -1,10 +1,10 @@
-import ColorPicker from "./ColorPicker"
+import Counter from "./Components/Counter"
 
 function App() {
 
   return (
     <>
-      <ColorPicker/>
+      <Counter/>
     </>
   )
 }
