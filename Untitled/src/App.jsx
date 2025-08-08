@@ -1,10 +1,10 @@
-import MyComponent from "./Components/MyComponent"
+import Todo from "./Components/Todo"
 
 function App() {
 
   return (
     <>
-      <MyComponent/>
+      <Todo/>
     </>
   )
 }
