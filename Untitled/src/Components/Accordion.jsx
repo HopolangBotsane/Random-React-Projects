@@ -31,11 +31,15 @@ function Accordion() {
         setSelected(getCurrentId)
     }
 
+    function handleOnDoubleClick() {
+        setSelected(null)
+    }
+
     return(
         <div className="wrapper">
             {data.map((dataitem) => (
                 <div className="accordion">
-                    <div onClick={() => handleSelection(dataitem.id)} className="title">
+                    <div onClick={() => handleSelection(dataitem.id)} onDoubleClick={handleOnDoubleClick} className="title">
                         <h2>{dataitem.question}</h2>
                         <span>+</span>
                     </div>
