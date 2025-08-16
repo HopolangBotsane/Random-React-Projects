@@ -1,10 +1,10 @@
-import DigitalClock from "./Components/DigitalClock"
+import Accordion from "./Components/Accordion"
 
 function App() {
 
   return (
     <>
-      <DigitalClock/>
+      <Accordion/>
     </>
   )
 }
